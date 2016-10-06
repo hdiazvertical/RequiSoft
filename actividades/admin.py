@@ -1,3 +1,7 @@
 from django.contrib import admin
+from models import *
 
-# Register your models here.
+admin.site.register(ReqParque)
+admin.site.register(ReqDgsm)
+admin.site.register(CasosDeUso)
+admin.site.register(Actividades)

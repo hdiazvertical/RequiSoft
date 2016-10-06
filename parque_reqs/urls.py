@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^actividades/', include('actividades.urls')),
     url(r'^$', views.login, {'template_name': 'acceso.html', 'authentication_form': LoginForm}, name='acceso'),
-    url(r'^salir/$', views.logout, {'next_page': '/salir'}),
+    url(r'^salir/$', views.logout, {'next_page': '/'}),
 ]

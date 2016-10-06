@@ -1,9 +1,16 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+
 
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Acceso para continuar con RequiSoft</h1>
+            <h1 class="text-center login-title">Acceso a RequiSoft</h1>
+            {% if form.errors %}
+            <div class="alert alert-danger">Sus credenciales de acceso no coinciden por favor intente nuevamente</div>
+            {% endif %}
             <div class="account-wall">
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
                 <form class="form-signin" method="post" action="{% url 'acceso' %}">
@@ -11,15 +18,17 @@
                     {{ form.username }}
 
                     {{ form.password }}
+
+                    <input type="hidden" name="next" value="/actividades/crear" />
+
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Ingresar</button>
-                    <label class="checkbox pull-left">
+                    <label class="checkbox pull-left"></label>
 
-                </label>
-                    <a href="#" class="pull-right need-help">Necesitas ayuda? </a><span class="clearfix"></span>
+
                 </form>
             </div>
-            <a href="#" class="text-center new-account">Crear cuenta </a>
+            <a href="#" class="text-center new-account" >Crear cuenta </a>
         </div>
     </div>
 </div>

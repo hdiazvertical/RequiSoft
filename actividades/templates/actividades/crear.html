@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-</div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Registrar actividad (es)</h3>
+      </div>
+      <div class="panel-body">
+        <div class="alert alert-info">
+          Especifique la actividad o actividades realizadas para los casos de uso seleccionados
+        </div>
+
+        <form action="{% url 'crear' %}" method="post">
+          {% csrf_token %}
+          {% crispy form %}
+          <button type="submit" class="btn btn-primary" >Guardar</button>
+        </form>
+      </div>
+    </div>
+    </div>
 <!-- /.container -->
 {% endblock %}
